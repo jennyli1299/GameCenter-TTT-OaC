@@ -1,5 +1,5 @@
 public class Player {
-    private PlayerID pID; // turn into PlayerID object
+    private PlayerID pID;
     private int score;
     private boolean turn;
 
@@ -9,7 +9,6 @@ public class Player {
         this.score = 0;
         this.turn = false;
     }
-
 
     // PlayerID and PlayerName [INSTANCE]
     public String getPID() {

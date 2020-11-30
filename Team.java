@@ -1,17 +1,13 @@
-import java.util.Arrays;
-
 public class Team {
     private String teamName;
     private String official;
     private Player[] team_players;
-    // private boolean turn; //might not even need
     private int teamscore;
     private int size;
     private int moves;
     private Player activePlayer;
 
     public Team(String Tname, Player[] plist) {
-        // turn = false;
         teamName = "";
         official = Tname;
         this.team_players = plist;
@@ -22,7 +18,6 @@ public class Team {
     }
 
     public void setTeam(Player[] plist) {
-        // turn = false;
         this.team_players = plist;
         size = team_players.length;
         teamscore = 0;
@@ -66,12 +61,4 @@ public class Team {
         getsetTeamScore();
     }
 
-    // public void setTurn() {
-    //     this.turn = true;
-    //     activePlayer.setTurn();
-    // }
-    // public void setTurnOver() {
-    //     this.turn = false;
-    //     activePlayer.setTurnOver();
-    // }
 }

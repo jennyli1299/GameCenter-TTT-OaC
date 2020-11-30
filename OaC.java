@@ -2,26 +2,8 @@ import java.util.Scanner;
 
 public class OaC extends Board_Games_2P {
 
-    // private Board b;
     private Team Order;
     private Team Chaos;
-    // private Team[] turn;
-    // private int mod;
-    // private boolean gameOver;
-    // private String playagain;
-
-    /** 
-    public OaC(Player[] o, Player[] c) {
-        b = new Board(6);
-        Order = new Team("Order", o);
-        Chaos = new Team("Chaos", c);
-        turn = new Team[2];
-        turn[0] = Order;
-        turn[1] = Chaos;
-        mod = -1;
-        gameOver = false;
-        playagain = "Yes";
-    } */
     
     public OaC(Team o, Team c) {
         b = new Board(6);
@@ -41,7 +23,6 @@ public class OaC extends Board_Games_2P {
         for (Team t: turn) {
             if (t.getOfficialTitle().equals(tn) && t.getTeamName().equals("Chaos")) {
                 Team o = Order;
-                // Team c = Chaos;
                 Order = Chaos;
                 Order.setRole("Order");
                 Chaos = o;
@@ -67,8 +48,6 @@ public class OaC extends Board_Games_2P {
         int r, c;
         System.out.println("Here is the board: \n");
         System.out.println(this.b);
-        // System.out.println("PLEASE");
-        // int n = ttt.getn();
         String whowin = b.checkBoardWinOaC();
         while (whowin.equals("") && b.howmanyOpen() > 0) {
             mod++;
@@ -106,7 +85,6 @@ public class OaC extends Board_Games_2P {
     }
 
     public int[] takeInput(Board b, Scanner scan) {
-        // Scanner scan = new Scanner(System.in);
         int[] ret = new int[2];
         int n = b.getn();
 
@@ -126,7 +104,6 @@ public class OaC extends Board_Games_2P {
             System.out.println("Sorry, that spot is taken. Try another position: ");
             ret = takeInput(b, scan);
         }
-        // scan.close();
         return ret;
     }
 
@@ -136,7 +113,6 @@ public class OaC extends Board_Games_2P {
 
     public void replay(){
         resetBoard(6);
-        // System.out.println(ttt);
         mod = -1;
         gameOver = false;
         play();
@@ -147,28 +123,5 @@ public class OaC extends Board_Games_2P {
     }
     public void setReplayChoice(String choice) {
         playagain = choice;
-    }
-
-
-    public static void main(String[] args) {
-        // System.out.println(Integer.toString(-1%3));
-        Player[] tx = new Player[2];
-        tx[0] = new Player("x0", "J", "L");
-        Player x1 = new Player("x1", "J", "c");
-        tx[1] = x1;
-        Team X1 = new Team("TX", tx);
-
-        Player[] to = new Player[3];
-        to[0] = new Player("o0", "Jo", "Lo");
-        Player o1 = new Player("o1", "Jo", "co");
-        to[1] = o1;
-        Player o2 = new Player("o2", "Co", "co");
-        to[2] = o2;
-        Team O1 = new Team("TO", to);
-
-        OaC game = new OaC(X1, O1);
-        game.play();
-
-        // game.replay();
     }
 }

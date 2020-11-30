@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Tile {
     private String box;
     private boolean empty;
@@ -39,10 +37,4 @@ public class Tile {
         return box;
     }
 
-
-    public static void main(String[] args) {
-        Tile hello = new Tile();
-        hello.setTile("yo");
-        System.out.println(hello);
-    }
 }

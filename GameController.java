@@ -1,9 +1,6 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class GameController {
-
-    // Game game;
 
     public GameController() {}
     
@@ -38,28 +35,22 @@ public class GameController {
         System.out.println("Team Complete!");
         return finret;
     }
-    public static void main(String[] args) {
-        // GameController gc = new GameController();
+    public void run() {
         Scanner sgame = new Scanner(System.in);
         System.out.println("Hello there! Welcome to the Game Center!");
         System.out.println("Let's form our 2 teams!");
         System.out.print("Team 1. What would you like your team name to be?\n");
         String tname = sgame.nextLine();
-        // System.out.println("Nice!");
         Team T1 = GameController.makeTeam(tname);
-        // Team T1 = gc.makeTeam(tname);
         System.out.println("Team 2. What would you like your team name to be?");
         String t2name = sgame.nextLine();
-        // System.out.println("Nice!");
         Team T2 = GameController.makeTeam(t2name);
-        // Team T2 = gc.makeTeam(t2name);
 
         Team[] teamarray = new Team[2];
         teamarray[0] = T1;
         teamarray[1] = T2;
         Scoreboard sb = new Scoreboard(teamarray);
 
-        // Board_Games_2P phantomgame;
         String replaychoice = "Yes";
         
         System.out.println("What game would you like to play?\nWe currently offer Tic Tac Toe and Order and Chaos.");
@@ -115,7 +106,6 @@ public class GameController {
                 System.out.println("Thanks for playing! I hope you had fun! :)");
                 System.out.println(sb);
             }
-            // scanw.close();
         }
     }
 }

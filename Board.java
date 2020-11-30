@@ -1,26 +1,12 @@
-import java.util.Arrays;
-
 public class Board {
     private Tile[][] gameBoard;
-    // private boolean[] available;
     private int n;
     private int open;
 
     public Board(int n) {
-        /** 
-        hahagameBoard = new String[][] {
-            { "   ", "|", "   ", "|", "   " },
-            { "---", "+", "---", "+", "---" },
-            { "   ", "|", "   ", "|", "   " },
-            { "---", "+", "---", "+", "---" },
-            { "   ", "|", "   ", "|", "   " }
-        }; */
         gameBoard = new Tile[n][n];
         this.n = n;
         open = n*n;
-        // available = new boolean[open]; //default: false
-        // Arrays.fill(available, Boolean.TRUE);
-        // Arrays.fill(gameBoard, new Tile());
         for (int r = 0; r < n; r++) {
             for (int c = 0; c < n; c++) {
                 Tile t = new Tile();
@@ -30,15 +16,11 @@ public class Board {
     }
 
     public void setBoardPos(String piece, int r, int c) {
-        // r = r--;
-        // c = c--;
         gameBoard[r][c].setTile(piece);
         open--;
     }
 
     public boolean checkOpen(int r, int c) {
-        // r = r--;
-        // c = c--;
         return gameBoard[r][c].isEmpty();
     }
 
@@ -64,7 +46,6 @@ public class Board {
     private String checkRowTTT(Team[] teams) {
         String winner = "";
         int[] count = new int[teams.length];
-        // boolean win = false;
         for (Tile[] row: gameBoard) {
             count = new int[teams.length];
             for (Tile t: row) {
@@ -82,12 +63,10 @@ public class Board {
             }
             if (!winner.equals("")) break;
         }
-        // System.out.println(winner);
         return winner;
     }
     private String checkColTTT(Team[] teams) {
         String winner = "";
-        // boolean win = true;
         int[] count = new int[teams.length];
         for (int c = 0; c < n; c++) {
             count = new int[teams.length];
@@ -107,12 +86,10 @@ public class Board {
             }
             if (!winner.equals("")) break;
         }
-        // System.out.println(winner);
         return winner;
     }
     private String checkXTTT(Team[] teams) {
         String winner = "";
-        // boolean win = true;
         int[] count = new int[teams.length];
         for (int c = 0; c < n; c++) {
             Tile tx = gameBoard[c][c];
@@ -145,7 +122,6 @@ public class Board {
                 winner = teams[i].getTeamName();
             }
         }
-        // System.out.println(winner);
         return winner;
     }
 
@@ -165,7 +141,6 @@ public class Board {
         int[] count = new int[2];
         for (Tile[] row: gameBoard) {
             count = new int[2];
-            // System.out.println(count.toString());
             for (Tile t: row) {
                 if (t.getOwner().equals("X")) count[0]++;
                 if (t.getOwner().equals("O")) count[1]++;                    
@@ -178,7 +153,6 @@ public class Board {
             }
             if (!winner.equals("")) break;
         }
-        // System.out.println(winner);
         return winner;
     }
     private String checkCOaC() {
@@ -198,7 +172,6 @@ public class Board {
             }
             if (!winner.equals("")) break;
         }
-        // System.out.println(winner);
         return winner;
     }
     private String checkXOaC() {
@@ -309,9 +282,4 @@ public class Board {
         this.gameBoard = new Board();
     } */
 
-    public static void main(String[] args) {
-        Board hello = new Board(3);
-
-        System.out.println(hello);
-    }
 }

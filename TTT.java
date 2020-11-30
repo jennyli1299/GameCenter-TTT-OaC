@@ -2,26 +2,8 @@ import java.util.Scanner;
 
 public class TTT extends Board_Games_2P {
 
-    // private Board b;
     private Team X;
     private Team O;
-    // private Team[] turn;
-    // private int mod;
-    // private boolean gameOver;
-    // private String playagain;
-
-    /** 
-    public TTT(int boardsize, Player[] Xp, Player[] Op) {
-        b = new Board(boardsize);
-        X = new Team("X", Xp);
-        O = new Team("O", Op);
-        turn = new Team[2];
-        turn[0] = X;
-        turn[1] = O;
-        mod = -1;
-        gameOver = false;
-        playagain = "Yes";
-    } */
 
     public TTT(int boardsize, Team Xt, Team Ot) {
         b = new Board(boardsize);
@@ -43,8 +25,7 @@ public class TTT extends Board_Games_2P {
         int r, c;
         System.out.println("Here is the board: \n");
         System.out.println(this.b);
-        // System.out.println("PLEASE");
-        // int n = b.getn();
+
         Scanner scan = new Scanner(System.in);
         String whowin = b.checkBoardWinTTT(turn);
         while (whowin.equals("") && b.howmanyOpen() > 0) {
@@ -79,7 +60,6 @@ public class TTT extends Board_Games_2P {
     }
     
     public int[] takeInput(Board b, Scanner scan) {
-        // Scanner scan = new Scanner(System.in);
         int[] ret = new int[2];
         int n = b.getn();
 
@@ -99,7 +79,6 @@ public class TTT extends Board_Games_2P {
             System.out.println("Sorry, that spot is taken. Try another position: ");
             ret = takeInput(b, scan);
         }
-        // scan.close();
         return ret;
     }
 
@@ -113,7 +92,6 @@ public class TTT extends Board_Games_2P {
         System.out.println("Let's Replay! What size nxn board would you like to play with?");
         int n = snew.nextInt();
         resetBoard(n);
-        // System.out.println(b);
         mod = -1;
         gameOver = false;
         play();
@@ -124,28 +102,6 @@ public class TTT extends Board_Games_2P {
     }
     public void setReplayChoice(String choice) {
         playagain = choice;
-    }
-
-    public static void main(String[] args) {
-        // System.out.println(Integer.toString(-1%3));
-        Player[] tx = new Player[2];
-        tx[0] = new Player("x0", "J", "L");
-        Player x1 = new Player("x1", "J", "c");
-        tx[1] = x1;
-        Team X1 = new Team("TX", tx);
-
-        Player[] to = new Player[3];
-        to[0] = new Player("o0", "Jo", "Lo");
-        Player o1 = new Player("o1", "Jo", "co");
-        to[1] = o1;
-        Player o2 = new Player("o2", "Co", "co");
-        to[2] = o2;
-        Team O1 = new Team("TO", to);
-
-        TTT game = new TTT(4, X1, O1);
-        game.play();
-
-        game.replay();
     }
 
 }

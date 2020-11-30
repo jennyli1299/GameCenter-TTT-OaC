@@ -17,6 +17,7 @@ Usability of Classes:
 9. Player -> Class representing the individual Players in teams. Each player has their own PlayerID and score.
 10. PlayerID -> Class representing the player information (Player ID, First Name, Last Name) of a player
 11. Scoreboard -> Scoreboard containing an array of teams which holds and is used to display the score of each team as they play games against each other
+12. Main -> Entry point of the program
 
 
 Thank You! I hope you enjoy! :)
